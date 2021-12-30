@@ -27,15 +27,13 @@
     
     <aside>
     💡 Anchor Base Object Detector들은  IOU를 Threshold로 사용해서 Postive / Negative로 분류해 labl-assignment를 수행하기 때문에 문제가 IOU를 Threshold Metric으로 사용할 경우 문제가 발생할 수 있다
-    
     </aside>
     
-
-![Untitled](1%20A%20Normalized%20Gaussian%20Wasserstein%20Distance%20for%20T%20b112aadd8d9f48e9a534572a7b6c641b/Untitled%2011.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7b1fe1dd-935b-409b-b72d-fec10fc9685d%2FUntitled.png?table=block&id=c11ef827-61ac-4e81-a62e-420e16414c4b&spaceId=fbe462b8-f019-4edb-b1b3-dc5d1093a107&width=2000&userId=4f4486ed-d885-4f69-a4b8-5cf6f4fe3f54&cache=v2)
 
 - Fig 1을 보면 (a)와 (b) 모두 Translation이 같은 픽셀만큼 움직였는데 Tiny Object의 경우 IOU가 줄어드는 폭이 매우 크다.
 
-![Untitled](1%20A%20Normalized%20Gaussian%20Wasserstein%20Distance%20for%20T%20b112aadd8d9f48e9a534572a7b6c641b/Untitled%2012.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F911b15fc-09d4-494d-aae6-b30b04d0afb6%2FUntitled.png?table=block&id=f98acc4c-0b02-4d38-8522-f2b61c34520a&spaceId=fbe462b8-f019-4edb-b1b3-dc5d1093a107&width=2000&userId=4f4486ed-d885-4f69-a4b8-5cf6f4fe3f54&cache=v2)
 
 - 게다가 Fig 2는 다른 scale의 Object간에 IOU-Deviation Curve를 보여주는데 Object Size가 작아질 수록 기울기가 매우 가팔라진다 (=민감해진다)
     - Fig 2 그래프에 대한 명확한 분석 및 이해 필요
@@ -48,8 +46,6 @@
         2nd row 의 시나리오는, B box 의 크기가 A box 보다 1/2 인 상태에서 45도 각도의 deviation 증가를 가져감. 이 경우에 확인할 수 있는 case 는, 특정 deviation 을 기준으로 0 인 IOU (다시 말해서 겹치지 않는 박스) 에 대해서도 NWD 값이 0에 수렴하지 않음을 확인 할 수 있음. 
         
         이는 논문에서 계속해서 말했던 NWD 의 장점 중 하나를 증명함.   
-        
-    
      
     
 - ATSS와 같은 Dynacie Label Assignment Strategies는 Adaptive하게 IOU Threshold를 조정할 수 있지만 민감한 IOU는 적절한 threshold를 찾는것 또한 어렵게 한다.
